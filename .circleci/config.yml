@@ -15,10 +15,10 @@ jobs:
       - run: echo "hello world_from_2" # run the `echo` command
   
 
-  workflows:
-    version: 2.1
-    build1_build2:
-      jobs:
-        - build1
-        - build2
+workflows:
+  version: 2
+  build1_build2:
+    jobs:
+      - build1
+      - build2
 
