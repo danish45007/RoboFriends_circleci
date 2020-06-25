@@ -17,6 +17,13 @@ jobs:
       - run: echo "testing..." # run the `echo` command
       - run: npm test
   
+  hithere:
+    docker: 
+      - image: circleci/node:8.9 # the primary container, where your job's commands are run
+    steps:
+      - checkout # check out the code in the project directory
+      - run: echo "hello from test" # run the `echo` command
+  
 
 
 workflows:
@@ -24,5 +31,8 @@ workflows:
   build_test:
     jobs:
       - build
-      - test
+      - test:
+          requires:
+            - hithere
+
 
